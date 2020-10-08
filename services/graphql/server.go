@@ -11,7 +11,7 @@ import (
 	"github.com/takuya911/golang-api_sample/services/graphql/graph/generated"
 )
 
-const defaultPort = "8080"
+const defaultPort = "80"
 
 func main() {
 	port := os.Getenv("PORT")
