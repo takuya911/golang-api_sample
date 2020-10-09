@@ -1,0 +1,24 @@
+scalar Time
+
+extend type Query {
+  getRecodeById(input:getRecodeForm!): Recode
+}
+
+extend type Mutation {
+  createRecode(input: CreateRecodeForm!): Recode
+}
+
+extend type Recode {
+  id: ID!
+  message: String!
+  createdAt: Time!
+  updatedAt: Time!
+}
+
+input getRecodeForm{
+  id: ID!
+}
+
+input CreateRecodeForm{
+  message:String!
+}

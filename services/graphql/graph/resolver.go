@@ -1,7 +1,18 @@
 package graph
 
-// This file will not be regenerated automatically.
-//
-// It serves as dependency injection for your app, add any dependencies you require here.
+import (
+	"github.com/takuya911/golang-api_sample/services/graphql/graph/generated"
+	pb "github.com/takuya911/golang-api_sample/services/graphql/proto"
+)
 
-type Resolver struct{}
+// Resolver struct
+type resolver struct {
+	sampleClient pb.SampleServiceClient
+}
+
+// NewResolver function
+func NewResolver(s pb.SampleServiceClient) generated.ResolverRoot {
+	return &resolver{
+		sampleClient: s,
+	}
+}

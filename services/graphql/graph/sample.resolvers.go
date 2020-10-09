@@ -9,21 +9,22 @@ import (
 
 	"github.com/takuya911/golang-api_sample/services/graphql/graph/generated"
 	"github.com/takuya911/golang-api_sample/services/graphql/graph/model"
+	sample "github.com/takuya911/golang-api_sample/services/graphql/proto"
 )
 
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
+func (r *mutationResolver) CreateRecode(ctx context.Context, input sample.CreateRecodeForm) (*sample.Recode, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
+func (r *queryResolver) GetRecodeByID(ctx context.Context, input model.GetRecodeForm) (*sample.Recode, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // Mutation returns generated.MutationResolver implementation.
-func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+func (r *resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
 // Query returns generated.QueryResolver implementation.
-func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
+func (r *resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
-type mutationResolver struct{ *Resolver }
-type queryResolver struct{ *Resolver }
+type mutationResolver struct{ *resolver }
+type queryResolver struct{ *resolver }
