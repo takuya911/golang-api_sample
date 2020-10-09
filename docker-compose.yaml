@@ -9,3 +9,12 @@ services:
     ports:
       - "80:80"
     tty: true
+  grpc:
+    build:
+      context: ./services/grpc
+      dockerfile: build/Dockerfile.dev
+    volumes:
+      - ./services/grpc:/app
+    ports:
+      - "81:81"
+    tty: true
