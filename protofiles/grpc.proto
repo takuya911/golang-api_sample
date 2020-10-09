@@ -16,7 +16,7 @@ message CreateRecodeForm {
   string message = 1;
 }
 
-  message Recode {
+message Recode {
   int64 id = 1;
   string message = 2;
   google.protobuf.Timestamp createdAt = 3;
