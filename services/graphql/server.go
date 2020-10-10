@@ -21,11 +21,17 @@ func main() {
 	// User gRPC connect
 	grpcServerName := os.Getenv("GPRC_SERVICE_NAME")
 	grpcPort := os.Getenv("GPRC_SERVICE_PORT")
-	conn, err := grpc.DialContext(ctx, grpcServerName+":"+grpcPort, grpc.WithInsecure())
+	host := grpcServerName + ":" + grpcPort
+
+	var opts []grpc.DialOption
+	opts = append(opts, grpc.WithInsecure())
+
+	conn, err := grpc.DialContext(ctx, host, opts...)
 	if err != nil {
 		panic(err)
 	}
 	defer conn.Close()
+
 	sampleC := pb.NewSampleServiceClient(conn)
 
 	resolver := graph.NewResolver(sampleC)
