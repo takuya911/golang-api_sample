@@ -13,7 +13,11 @@ import (
 )
 
 func main() {
-	port := os.Getenv("GPRC_SERVICE_PORT")
+
+	port := os.Getenv("GRPC_SERVICE_PORT")
+	if port == "" {
+		log.Fatalf("have to set port")
+	}
 	lis, err := net.Listen("tcp", ":"+port)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
@@ -28,8 +32,8 @@ func main() {
 	server := infrastructure.NewGrpcServer(sampleController)
 	pb.RegisterSampleServiceServer(server, sampleController)
 
+	log.Printf("starting server at http://localhost:%s/", port)
 	if err := server.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
-	log.Printf("starting server at http://localhost:%s/", port)
 }
