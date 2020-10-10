@@ -5,7 +5,6 @@ package graph
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/takuya911/golang-api_sample/services/graphql/graph/generated"
 	"github.com/takuya911/golang-api_sample/services/graphql/graph/model"
@@ -13,11 +12,17 @@ import (
 )
 
 func (r *mutationResolver) CreateRecode(ctx context.Context, input sample.CreateRecodeForm) (*sample.Recode, error) {
-	panic(fmt.Errorf("not implemented"))
+	request := &sample.CreateRecodeForm{
+		Message: input.Message,
+	}
+	return r.sampleClient.CreateRecode(ctx, request)
 }
 
 func (r *queryResolver) GetRecodeByID(ctx context.Context, input model.GetRecodeForm) (*sample.Recode, error) {
-	panic(fmt.Errorf("not implemented"))
+	request := &sample.GetRecodeForm{
+		Id: input.ID,
+	}
+	return r.sampleClient.GetRecode(ctx, request)
 }
 
 // Mutation returns generated.MutationResolver implementation.

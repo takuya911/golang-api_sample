@@ -1,7 +1,7 @@
 scalar Time
 
 extend type Query {
-  getRecodeById(input:getRecodeForm!): Recode
+  getRecodeById(input:getRecodeForm!): Recode!
 }
 
 extend type Mutation {
@@ -11,8 +11,8 @@ extend type Mutation {
 extend type Recode {
   id: ID!
   message: String!
-  createdAt: Time!
-  updatedAt: Time!
+  createdAt: Time
+  updatedAt: Time
 }
 
 input getRecodeForm{
