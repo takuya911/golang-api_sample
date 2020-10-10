@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net"
+	"os"
 
 	"github.com/takuya911/golang-api_sample/services/grpc/infrastructure"
 	"github.com/takuya911/golang-api_sample/services/grpc/interface/controller"
@@ -12,7 +13,7 @@ import (
 )
 
 func main() {
-	port := "81"
+	port := os.Getenv("GPRC_SERVICE_PORT")
 	lis, err := net.Listen("tcp", ":"+port)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)

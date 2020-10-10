@@ -14,17 +14,14 @@ import (
 	"google.golang.org/grpc"
 )
 
-const defaultPort = "80"
-
 func main() {
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = defaultPort
-	}
+	graphqlPort := os.Getenv("GRAPHQL_SERVICE_PORT")
 
 	ctx := context.Background()
 	// User gRPC connect
-	conn, err := grpc.DialContext(ctx, "grpc"+":"+"81", grpc.WithInsecure())
+	grpcServerName := os.Getenv("GPRC_SERVICE_NAME")
+	grpcPort := os.Getenv("GPRC_SERVICE_PORT")
+	conn, err := grpc.DialContext(ctx, grpcServerName+":"+grpcPort, grpc.WithInsecure())
 	if err != nil {
 		panic(err)
 	}
@@ -38,6 +35,6 @@ func main() {
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
 	http.Handle("/query", srv)
 
-	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	log.Printf("connect to http://localhost:%s/ for GraphQL playground", graphqlPort)
+	log.Fatal(http.ListenAndServe(":"+graphqlPort, nil))
 }
