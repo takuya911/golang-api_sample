@@ -4,7 +4,6 @@ resource "google_cloud_run_service" "graphql" {
   location = var.region_tokyo
   template {
     spec {
-      container_concurrency = var.gql_svc_port
       timeout_seconds       = 30
       containers {
         image = var.gql_img
@@ -44,12 +43,11 @@ resource "google_cloud_run_service" "grpc" {
   location = var.region_tokyo
   template {
     spec {
-      container_concurrency = var.grpc_svc_port
       timeout_seconds       = 30
       containers {
         image = var.grpc_img
         env {
-          name  = "GPRC_SERVICE_PORT"
+          name  = "GRPC_SERVICE_PORT"
           value = var.grpc_svc_port
         }
         resources {
