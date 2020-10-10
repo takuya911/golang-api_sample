@@ -22,6 +22,7 @@ func main() {
 	grpcServerName := os.Getenv("GPRC_SERVICE_NAME")
 	grpcPort := os.Getenv("GPRC_SERVICE_PORT")
 	host := grpcServerName + ":" + grpcPort
+	log.Printf("host is %s", host)
 
 	var opts []grpc.DialOption
 	opts = append(opts, grpc.WithInsecure())

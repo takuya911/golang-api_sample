@@ -13,11 +13,11 @@ resource "google_cloud_run_service" "graphql" {
           value = var.gql_svc_port
         }
         env {
-          name  = "USER_SERVICE_NAME"
+          name  = "GRPC_SERVICE_NAME"
           value = var.grpc_svc_name
         }
         env {
-          name  = "USER_SERVICE_PORT"
+          name  = "GRPC_SERVICE_PORT"
           value = var.grpc_svc_port
         }
         resources {

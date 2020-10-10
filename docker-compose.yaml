@@ -10,8 +10,8 @@ services:
       - "80:80"
     environment:
       - GRAPHQL_SERVICE_PORT=80
-      - GPRC_SERVICE_PORT=443
-      - GPRC_SERVICE_NAME=grpc
+      - GRPC_SERVICE_PORT=443
+      - GRPC_SERVICE_NAME=grpc
     tty: true
   grpc:
     build:
@@ -22,5 +22,5 @@ services:
     ports:
       - "443:443"
     environment:
-      - GPRC_SERVICE_PORT=443
+      - GRPC_SERVICE_PORT=443
     tty: true
