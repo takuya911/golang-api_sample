@@ -19,9 +19,10 @@ func main() {
 
 	ctx := context.Background()
 	// User gRPC connect
-	grpcServerName := os.Getenv("GPRC_SERVICE_NAME")
-	grpcPort := os.Getenv("GPRC_SERVICE_PORT")
-	host := grpcServerName + ":" + grpcPort
+	// grpcServerName := os.Getenv("GPRC_SERVICE_NAME")
+	// grpcPort := os.Getenv("GPRC_SERVICE_PORT")
+	// host := grpcServerName + ":" + grpcPort
+	host := "grpc-repftyfivq-an.a.run.app:443"
 	log.Printf("host is %s", host)
 
 	var opts []grpc.DialOption
