@@ -1,10 +1,10 @@
 # よく変更する部分
 variable "gql_img" {
-  default = "gcr.io/golang-portfolio/golang-api_sample/graphql@sha256:a2cf3d76928d5409ec1a17fc7c8afb83e5fd72fbce368cab4cb6b09376acf480"
+  default = "gcr.io/golang-portfolio/golang-api_sample/graphql@sha256:089e9fbfb2332b3787f231b78ad8161ea246e48f2e0a1a45ec20ecf66c1b420b"
 }
 
 variable "grpc_img" {
-  default = "gcr.io/golang-portfolio/golang-api_sample/grpc@sha256:c131955494d11a5df15855586a82dc679fe7f8a48312a6605a8c63b0e7a403a8"
+  default = "gcr.io/golang-portfolio/golang-api_sample/grpc@sha256:7351a01c0c2cc830e38b23b5c03f0fa897de9b258933d3866ab7b9f0d9660739"
 }
 
 # 基本変更しない部分
